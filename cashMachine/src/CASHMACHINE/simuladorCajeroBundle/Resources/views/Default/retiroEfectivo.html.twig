@@ -1,19 +1,86 @@
 <html>
 <head>
 <title>Retiro Efectivo</title>
+	<!--Bloque de archivos css-->
     {% block stylesheets %}
-    	{% stylesheets 'bundles/simuladorCajeroBundle/css/retiroEfectivo.css' filter='cssrewrite' %}
+    	{% stylesheets 'bundles/simuladorCajeroBundle/css/*' filter='cssrewrite' %}
     		<link rel="stylesheet" href="{{ asset_url }}" />
 		{% endstylesheets %}
     {% endblock %}
-    {% block javascript %}
-		{% javascripts '@CASHMACHINEsimuladorCajeroBundle/Resources/views/Default/js/retiroEfectivo.js' %}
-	        <script type="text/javascript" src="{{ asset_url }}"></script>
-	    {% endjavascripts %}
-	{% endblock %}
 </head>
 <body>
-	<h1 id="saludo">Hola {{ name }}, Bienvenido a Banco Rocket</h1>
-	<a id="pruebaClick" href=#>PRUEBA</a>
+    <div class="jumbotron">
+        <h2 class="text-center">
+        Hola {{ name }}
+        </br></br>
+        Bienvenido a Banco Rocket
+        </h2>
+    </div>
+    <!--Mensaje de error -->
+	<div class="alert alert-danger" id="multiplo-error">La cifra debe ser multiplo de 10.</div>
+	<div class="alert alert-danger" id="no-number-error">Solo puedes introducir números.</div>
+    <br>
+    <div class="row">
+	    <div class="col-xs-3">
+		    <div class="alert alert-success" id="denominaciones">
+		    Tenemos billetes con las siguientes denominaciones:
+		    	</br>
+		    	* $100
+		    	</br>
+		    	* $50
+		    	</br>
+		    	* $20
+		    	</br>
+		    	* $10
+		    	</br>
+		    </div>
+		    <br>
+		</div>
+		<div class="col-xs-6">
+	        <label for="">Introduce la cantidad a retirar (En multiplos de 10)&nbsp;</label>
+	        <input id="cantidadRetiro" class="form-control has-required input-md" type="text" placeholder="$1250">
+	    </div>
+	</div>
+	
+	{# note que en este caso utilizamos el layout de ajax para así no cargar todo el contenido del layout general #}
+	{#{% extends app.request.isXmlHttpRequest ? "MDWDemoBundle::layout_ajax.html.twig" : "MDWDemoBundle::layout.html.twig" %} #}
+	{% block content %}
+		<!--Vista previa-->
+			<div class="modal fade" id="confirmacion" tabindex="-1" role="dialog" aria-labelledby="confirmacionLabel" aria-hidden="true">
+			  <div class="modal-dialog">
+				<div class="modal-content">
+				  	<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title text-center" id="modalConfirmacionLabel">Verifica La informacion antes de retirar!</h4>
+				  	</div>
+				  	<div class="modal-body">
+				  		<p class="text-center">RETIRAR : <span id="cantidad"><span><p>
+				  	</div>
+				  	<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">No, quiero retirar otra cantidad.</button>
+						<button type="button" class="btn btn-primary" id="btnFacturar">Si, es correcto.</button>
+				  	</div>
+				</div>
+			  </div>
+			</div>
+			<!-- End Vista Previa -->
+	{% endblock content %}
+
+	<br><br><hr>
+	<div class="row">
+	    <div class="col-xs-6">
+	        <button type="button" class="btn btn-danger btn-md btn-block" id="limpiaCantidad">Otra Cantidad</button>
+	    </div>
+	    <div class="col-xs-6">
+	        <button type="button" class="btn btn-primary btn-md btn-block" id="retiraEfectivo">Retirar</button>
+	    </div>
+	</div>
+
+	<!--Bloque de archivos javascript-->
+    {% block javascript %}
+		<script src="{{ asset('bundles/simuladorCajeroBundle/js/jquery.js') }}"></script>
+        <script src="{{ asset('bundles/simuladorCajeroBundle/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/simuladorCajeroBundle/js/retiroEfectivo.js') }}"></script>
+	{% endblock %}
 </body>
 </html>

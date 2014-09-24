@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Retiro Efectivo</title>
+	<!--Bloque de archivos css-->
+    {% block stylesheets %}
+    	{% stylesheets 'bundles/simuladorCajeroBundle/css/*' filter='cssrewrite' %}
+    		<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+    {% endblock %}
+</head>
+<body>
+    <div class="jumbotron">
+        <h2 class="text-center">
+        Listo 
+        </br></br>
+        </h2>
+    </div>
+	<!--Bloque de archivos javascript-->
+    {% block javascript %}
+		<script src="{{ asset('bundles/simuladorCajeroBundle/js/jquery.js') }}"></script>
+        <script src="{{ asset('bundles/simuladorCajeroBundle/js/bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/simuladorCajeroBundle/js/retiroEfectivo.js') }}"></script>
+	{% endblock %}
+</body>
+</html>

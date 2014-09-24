@@ -1,3 +1,7 @@
 retiroEfectivo:
   pattern: /retiroEfectivo
   defaults: { _controller: CASHMACHINEsimuladorCajeroBundle:Default:retiroEfectivo }
+
+disposicionEfectivo:
+  pattern: /disposicionEfectivo
+  defaults: { _controller: CASHMACHINEsimuladorCajeroBundle:Default:disposicionEfectivo }
