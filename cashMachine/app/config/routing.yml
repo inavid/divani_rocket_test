@@ -1,0 +1,4 @@
+# app/config/routing.yml
+CASHMACHINEsimuladorCajeroBundle:
+    resource: "@CASHMACHINEsimuladorCajeroBundle/Resources/config/routing.yml"
+    prefix:   /

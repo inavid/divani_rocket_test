@@ -1,0 +1,7 @@
+parameters:
+#    cashmachin_esimulador_cajero.example.class: CASHMACHINE\simuladorCajeroBundle\Example
+
+services:
+#    cashmachin_esimulador_cajero.example:
+#        class: %cashmachin_esimulador_cajero.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

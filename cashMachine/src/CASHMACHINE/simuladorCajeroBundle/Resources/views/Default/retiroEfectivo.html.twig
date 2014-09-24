@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Retiro Efectivo</title>
+    {% block stylesheets %}
+    	{% stylesheets 'bundles/simuladorCajeroBundle/css/retiroEfectivo.css' filter='cssrewrite' %}
+    		<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+    {% endblock %}
+    {% block javascript %}
+		{% javascripts '@CASHMACHINEsimuladorCajeroBundle/Resources/views/Default/js/retiroEfectivo.js' %}
+	        <script type="text/javascript" src="{{ asset_url }}"></script>
+	    {% endjavascripts %}
+	{% endblock %}
+</head>
+<body>
+	<h1 id="saludo">Hola {{ name }}, Bienvenido a Banco Rocket</h1>
+	<a id="pruebaClick" href=#>PRUEBA</a>
+</body>
+</html>
