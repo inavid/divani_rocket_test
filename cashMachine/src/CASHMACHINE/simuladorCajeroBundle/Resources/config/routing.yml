@@ -1,3 +1,7 @@
+index:
+  pattern: /
+  defaults: { _controller: CASHMACHINEsimuladorCajeroBundle:Default:index }
+
 retiroEfectivo:
   pattern: /retiroEfectivo
   defaults: { _controller: CASHMACHINEsimuladorCajeroBundle:Default:retiroEfectivo }

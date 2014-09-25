@@ -9,17 +9,29 @@
     {% endblock %}
 </head>
 <body>
-    <div class="jumbotron">
+	<div class="jumbotron">
         <h2 class="text-center">
-        Listo 
+        Hola {{ name }}
         </br></br>
+        Bienvenido a Banco Rocket
         </h2>
     </div>
+	<div class="row">
+	    <div class="col-xs-12">
+
+	        <a href="/retiroEfectivo"><button type="button" class="btn btn-primary btn-gde btn-block" id="retiraEfectivo">Retirar Efectivo</button></a>
+	    </div>
+	</div>
+
 	<!--Bloque de archivos javascript-->
     {% block javascript %}
 		<script src="{{ asset('bundles/simuladorCajeroBundle/js/jquery.js') }}"></script>
         <script src="{{ asset('bundles/simuladorCajeroBundle/js/bootstrap.js') }}"></script>
         <script src="{{ asset('bundles/simuladorCajeroBundle/js/retiroEfectivo.js') }}"></script>
 	{% endblock %}
+	</br></br>
 </body>
+<footer>
+	<p class="text-center">RECUERDA NO ACEPTAR AYUDA DE NADIE!!</p>
+</footer>
 </html>
