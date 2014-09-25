@@ -1,0 +1,15 @@
+#denominaciones{
+	margin-left: 10%;
+}
+
+#text_retiro{
+	margin-left: 20%;
+	margin-top: 3%;
+}
+
+footer{
+	position: relative; 
+	margin-top: -1px; 
+	height: 1px; 
+	clear: both;
+}
